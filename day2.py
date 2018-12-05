@@ -16,8 +16,8 @@ def checksum(IDs):
     return twos * threes
 
 
-def duplicate(IDs):
-    for i in range(len(IDs[0])-1):  # -1 to not run over endline char as input is not stripped
+def commonLetters(IDs):
+    for i in range(len(IDs[0])):
         reduced = list(map(lambda x: x[:i] + x[i+1:], IDs))  # remove char at position i
         unique = set(reduced)
         if not len(unique) == len(reduced):
@@ -27,9 +27,9 @@ def duplicate(IDs):
 
 
 def main(day):
-    data = aocinput(day)
+    data = [line.strip() for line in aocinput(day)]
     print(checksum(data))
-    print(duplicate(data))
+    print(commonLetters(data))
 
 
 if __name__ == '__main__':
