@@ -23,11 +23,12 @@ def sumMetaData2(data):
         for i in range(data[start]):  # step through child nodes
             nextEntry, childSum = node(nextEntry)
             childSums.append(childSum)
+
         metadata = 0
         if data[start] == 0:  # if no childnodes
              metadata = sum(data[nextEntry:nextEntry + data[start + 1]])  # sum all metadata entries
         else:
-            for i in data[nextEntry:nextEntry + data[start + 1]]:
+            for i in data[nextEntry:nextEntry + data[start + 1]]:  # for each metadata entry
                 try:
                     metadata += childSums[i-1]
                 except IndexError:
