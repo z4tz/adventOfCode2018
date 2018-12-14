@@ -4,8 +4,7 @@ import numpy as np
 
 
 def countPlants(data):
-    pots = data[0].split()[-1]
-    pots = defaultdict(lambda: '.', zip(range(len(pots)), pots))
+    pots = defaultdict(lambda: '.', enumerate(data[0].split()[-1]))  # {position: #/.}
     growthTable = defaultdict(lambda: '.', (line.strip().split(' => ') for line in data[2:]))
 
     values = []
