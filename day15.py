@@ -91,7 +91,7 @@ def moveUnit(unit, enemies, grid):
     """Attempt to move unit. If no valid targets are found, stand still"""
     # get nonblocked squares around enemies
     attackSquares = [availableCoord for enemy in enemies for availableCoord in enemy.squaresInRange(grid)]
-    # attackSquares reachable from current location
+    # attackSquares reachable from current location with the shortest distance
     reachableAttackSquares = [coord for coord in distances(grid, unit.coord, attackSquares) if coord in attackSquares]
     if reachableAttackSquares:
         closestAttackSquare = sorted(reachableAttackSquares, key=lambda t: (t[1], t[0]))[0]
