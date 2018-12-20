@@ -1,7 +1,7 @@
 import timeit
 import os
 
-days = range(14, len(os.listdir('inputs/')) + 1)
+days = range(15, len(os.listdir('inputs/')) + 1)
 runs = 1
 
 
